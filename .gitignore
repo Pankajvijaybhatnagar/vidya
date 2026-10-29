@@ -39,3 +39,18 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# heavy source material — original photos, archives and office files.
+# The website uses the optimised copies in public/ (WebP, ≤ ~250 KB each).
+/data/
+*.zip
+*.rar
+*.7z
+/*.docx
+/*.pptx
+/*.pdf
+*.NEF
+*.CR2
+*.ARW
+*.psd
+Thumbs.db

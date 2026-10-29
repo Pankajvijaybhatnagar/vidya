@@ -1,26 +1,236 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+/* Generated photo manifest: its base64 placeholders are not class names. */
+@source not "../lib/gallery.js";
+/* Raw source material (photos, zip, Word/PowerPoint files) — never scan for classes. */
+@source not "../../data";
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
+/* Brand palette from the academic calendar deck, tuned for a modern UI */
+@theme {
+  --color-ink: #170909;
+  --color-ink-soft: #2a1212;
+  --color-maroon: #5e1214;
+  --color-maroon-deep: #3a0a0c;
+  --color-brown: #4a2418;
+  --color-saffron: #ea7a14;
+  --color-rust: #d2600e;
+  --color-gold: #d4a23a;
+  --color-gold-light: #f2cf7a;
+  --color-sand: #f7e6c4;
+  --color-cream: #fff8ee;
+  --color-ivory: #fbf3e4;
+  --color-leaf: #516a30;
+  --color-marigold: #ffc93c;
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+  --font-display: var(--font-bricolage), var(--font-mukta), system-ui, sans-serif;
+  --font-serif: var(--font-jakarta), var(--font-mukta), system-ui, sans-serif;
+  --font-hindi: var(--font-mukta), var(--font-jakarta), sans-serif;
+  --font-sanskrit: var(--font-tiro), var(--font-mukta), serif;
+
+  --shadow-sm: 0 1px 2px rgb(58 10 12 / 0.06), 0 1px 1px rgb(58 10 12 / 0.04);
+  --shadow-md: 0 6px 18px -8px rgb(58 10 12 / 0.16);
+  --shadow-lg: 0 14px 34px -14px rgb(58 10 12 / 0.22);
+  --shadow-xl: 0 24px 50px -22px rgb(58 10 12 / 0.3);
+  --shadow-2xl: 0 40px 90px -36px rgb(58 10 12 / 0.45);
+
+  --animate-float: float 6s ease-in-out infinite;
+  --animate-spin-slow: spin 60s linear infinite;
+  --animate-spin-slower: spin 90s linear infinite;
+  --animate-marquee: marquee 110s linear infinite;
+  --animate-shimmer: shimmer 6s linear infinite;
+  --animate-blob: blob 18s ease-in-out infinite;
+
+  @keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-12px); }
   }
+  @keyframes marquee {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+  }
+  @keyframes shimmer {
+    from { background-position: 0% 50%; }
+    to { background-position: 200% 50%; }
+  }
+  @keyframes blob {
+    0%, 100% { transform: translate(0, 0) scale(1); }
+    33% { transform: translate(6%, -8%) scale(1.12); }
+    66% { transform: translate(-6%, 6%) scale(0.92); }
+  }
+}
+
+:root {
+  --background: #fffbf5;
+  --foreground: #1f1212;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+html,
+body {
+  overflow-x: clip;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-serif);
+  -webkit-font-smoothing: antialiased;
+}
+
+::selection {
+  background: var(--color-saffron);
+  color: white;
+}
+
+/* Warm light section background with soft colour washes */
+.bg-texture {
+  background-color: var(--color-cream);
+  background-image:
+    radial-gradient(60rem 30rem at 0% 0%, rgb(234 122 20 / 0.07), transparent 60%),
+    radial-gradient(50rem 30rem at 100% 100%, rgb(212 162 58 / 0.1), transparent 60%);
+}
+
+/* Dark "aurora" section background with a faint grid */
+.bg-maroon-texture {
+  background-color: var(--color-ink);
+  background-image:
+    radial-gradient(40rem 28rem at 15% -10%, rgb(234 122 20 / 0.35), transparent 60%),
+    radial-gradient(45rem 30rem at 95% 20%, rgb(140 24 28 / 0.55), transparent 60%),
+    radial-gradient(40rem 26rem at 50% 120%, rgb(212 162 58 / 0.22), transparent 60%),
+    linear-gradient(rgb(255 255 255 / 0.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgb(255 255 255 / 0.035) 1px, transparent 1px);
+  background-size: 100% 100%, 100% 100%, 100% 100%, 56px 56px, 56px 56px;
+}
+
+/* Hairline accent */
+.gold-rule {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgb(212 162 58 / 0.7), transparent);
+}
+
+.glass {
+  background: rgb(255 255 255 / 0.07);
+  border: 1px solid rgb(255 255 255 / 0.12);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+}
+
+.glass-light {
+  background: rgb(255 255 255 / 0.72);
+  border: 1px solid rgb(94 18 20 / 0.08);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+}
+
+.text-gold-gradient {
+  background: linear-gradient(90deg, #ffd27a, #f28c28, #ffc93c, #ffd27a);
+  background-size: 200% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: var(--animate-shimmer);
+}
+
+.text-brand-gradient {
+  background: linear-gradient(90deg, var(--color-maroon), var(--color-saffron));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.btn-primary {
+  background-image: linear-gradient(135deg, #f59a2e, var(--color-saffron) 45%, var(--color-rust));
+  box-shadow: 0 12px 30px -10px rgb(234 122 20 / 0.6), inset 0 1px 0 rgb(255 255 255 / 0.25);
+}
+
+/* Cursor-following glow; --mx/--my are set by <PointerGlow /> */
+.spotlight {
+  position: relative;
+  isolation: isolate;
+}
+.spotlight::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: radial-gradient(22rem circle at var(--mx, 50%) var(--my, 50%), rgb(234 122 20 / 0.16), transparent 45%);
+  opacity: 0;
+  transition: opacity 0.3s;
+  z-index: -1;
+  pointer-events: none;
+}
+.spotlight:hover::before {
+  opacity: 1;
+}
+
+/* Animated gradient border */
+@property --angle {
+  syntax: "<angle>";
+  initial-value: 0deg;
+  inherits: false;
+}
+@keyframes angle {
+  to { --angle: 360deg; }
+}
+.ring-gradient {
+  position: relative;
+}
+.ring-gradient::after {
+  content: "";
+  position: absolute;
+  inset: -1px;
+  border-radius: inherit;
+  padding: 1.5px;
+  background: conic-gradient(from var(--angle), rgb(234 122 20 / 0.95), rgb(212 162 58 / 0.15), rgb(140 24 28 / 0.7), rgb(234 122 20 / 0.95));
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+  animation: angle 6s linear infinite;
+}
+
+.ornament-divider {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  color: var(--color-saffron);
+}
+.ornament-divider::before,
+.ornament-divider::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgb(234 122 20 / 0.5), transparent);
+}
+
+.scrollbar-none {
+  scrollbar-width: none;
+}
+.scrollbar-none::-webkit-scrollbar {
+  display: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+@media print {
+  header,
+  footer,
+  .no-print {
+    display: none !important;
+  }
+  body {
+    background: white;
+  }
 }

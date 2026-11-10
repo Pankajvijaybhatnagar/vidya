@@ -89,13 +89,14 @@ export default function Home() {
           <div className="[text-shadow:0_2px_14px_rgb(23_9_9/0.55)]">
             <Reveal>
               <p className="border-l-2 border-saffron pl-3 text-xs font-bold uppercase tracking-[0.3em] text-gold-light">
-                Vinay Bal Mandir · Est. {SITE.established}
+                Gurukul Vidyapeeth · Est. {SITE.established}
               </p>
             </Reveal>
             <Reveal delay={0.1}>
-              <h1 className="mt-6 font-display text-5xl font-semibold leading-[1.02] tracking-tight text-white sm:text-6xl xl:text-7xl">
-                Gurukul <span className="text-gold-gradient [text-shadow:none] drop-shadow-[0_2px_10px_rgb(23_9_9/0.45)]">Vidyapeeth</span>
+              <h1 className="mt-6 font-display text-5xl font-bold uppercase leading-[1.02] tracking-tight text-white sm:text-6xl xl:text-[5.25rem]">
+                Vinay Bal <span className="text-gold-gradient [text-shadow:none] drop-shadow-[0_2px_10px_rgb(23_9_9/0.45)]">Mandir</span>
               </h1>
+              <p className="mt-3 font-display text-2xl font-semibold tracking-wide text-gold-light sm:text-3xl">Gurukul Vidyapeeth, Jind</p>
               <p className="font-hindi mt-4 text-xl font-medium text-white/90 sm:text-2xl">{SITE.nameHi}</p>
             </Reveal>
             <Reveal delay={0.2}>
@@ -348,8 +349,8 @@ export default function Home() {
             })}
           </div>
 
-          {/* Vice-Chairperson, Principal, Balvatika Coordinator */}
-          <div className="mt-6 grid gap-6 md:grid-cols-3">
+          {/* Vice-Chairperson, Manager, Principal, Balvatika Coordinator */}
+          <div className="mt-6 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
             {MESSAGES.filter((m) => !FEATURED.includes(m.slug)).map((m, i) => (
               <Reveal key={m.slug} delay={i * 0.08}>
                 <Link
@@ -459,15 +460,27 @@ export default function Home() {
             </p>
             <p className="font-hindi mx-auto mt-4 max-w-3xl text-ink/55">{VISION.sankalp}</p>
           </Reveal>
-          <div className="mt-14 grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-5">
-            {VISION.pillars.map((p, i) => (
-              <Reveal key={p} delay={i * 0.07} className={i === 4 ? "col-span-2 sm:col-span-1" : ""}>
-                <div className="spotlight group h-full rounded-3xl border border-ink/[0.07] bg-white p-6 shadow-sm transition duration-300 hover:-translate-y-1.5 hover:shadow-xl">
-                  <p className="font-display text-sm font-semibold text-saffron">0{i + 1}</p>
-                  <p className="font-hindi mt-8 text-3xl font-semibold text-ink transition group-hover:text-maroon">{p}</p>
-                </div>
-              </Reveal>
-            ))}
+          {/* Five pillars — a lamp-lit path from विद्या to स्वावलम्बन */}
+          <div className="relative mt-16">
+            <div className="absolute left-[10%] right-[10%] top-7 hidden h-[3px] rounded-full bg-gradient-to-r from-marigold via-saffron to-maroon lg:block" />
+            <div className="grid grid-cols-2 gap-x-4 gap-y-10 sm:grid-cols-3 lg:grid-cols-5">
+              {VISION.pillars.map((p, i) => (
+                <Reveal key={p} delay={i * 0.08} className={i === 4 ? "col-span-2 sm:col-span-1" : ""}>
+                  <div className="group flex h-full flex-col items-center text-center">
+                    <span className="relative z-10 grid h-14 w-14 place-items-center rounded-full bg-gradient-to-br from-saffron to-maroon font-display text-lg font-bold text-white shadow-lg ring-[6px] ring-ivory transition duration-300 group-hover:scale-110">
+                      {i + 1}
+                    </span>
+                    <div className="relative mt-5 flex w-full flex-1 flex-col items-center overflow-hidden rounded-[1.75rem] bg-gradient-to-b from-maroon to-maroon-deep px-4 pb-7 pt-9 shadow-xl transition duration-300 group-hover:-translate-y-1.5 group-hover:shadow-2xl">
+                      <span className="font-hindi pointer-events-none absolute -bottom-8 -right-3 text-[7.5rem] font-bold leading-none text-white/[0.06]">{p.charAt(0)}</span>
+                      <span className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-marigold via-saffron to-marigold" />
+                      <p className="font-hindi relative text-3xl font-semibold text-marigold sm:text-[2rem]">{p}</p>
+                      <span className="relative mt-3 h-px w-10 bg-gold/60" />
+                      <p className="relative mt-3 text-[11px] font-bold uppercase tracking-[0.22em] text-white/70">{VISION.pillarsEn[i]}</p>
+                    </div>
+                  </div>
+                </Reveal>
+              ))}
+            </div>
           </div>
           <Reveal className="mt-10 text-center">
             <Link href="/vision-mission" className="inline-flex items-center gap-2 font-bold text-ink hover:text-saffron">

@@ -1,5 +1,4 @@
 import Image from "next/image";
-import { Flame, Flower2, Shell, Sun } from "lucide-react";
 import PageHero from "@/components/PageHero";
 import { photo } from "@/lib/gallery";
 import SectionHeading from "@/components/SectionHeading";
@@ -14,7 +13,6 @@ export const metadata = {
   description: "The meaning of the Vinay Bal Mandir Gurukul Vidyapeeth emblem — तेजो मयि धेहि — and its four symbols: Sun, Conch, Lamp and Lotus.",
 };
 
-const ICONS = { surya: Sun, shankh: Shell, deepak: Flame, kamal: Flower2 };
 // Where each symbol sits on the emblem image, in percent.
 const HOTSPOTS = {
   surya: { left: "50%", top: "25%" },
@@ -88,7 +86,7 @@ export default function LogoPage() {
           <SectionHeading eyebrow="ध्येय चिह्न" title={<span className="font-hindi">{LOGO.symbolsIntro}</span>} subtitle="Tap a symbol on the emblem to read its meaning." />
           <div className="mt-14 grid items-center gap-12 lg:grid-cols-2">
             <Reveal className="relative mx-auto w-full max-w-md">
-              <Image src="/logo.png" alt={`${SITE.name} emblem`} width={443} height={443} className="w-full drop-shadow-2xl" />
+              <Image src="/logo.png" alt={`${SITE.name} emblem`} width={443} height={443} className="w-full rounded-full drop-shadow-2xl" />
               {LOGO.symbols.map((s) => (
                 <a
                   key={s.key}
@@ -107,14 +105,13 @@ export default function LogoPage() {
             </Reveal>
             <div className="grid gap-4 sm:grid-cols-2">
               {LOGO.symbols.map((s, i) => {
-                const Icon = ICONS[s.key];
                 return (
                   <Reveal key={s.key} delay={i * 0.08}>
                     <a
                       href={`#${s.key}`}
                       className={`group block h-full rounded-3xl bg-gradient-to-br ${TINTS[s.key]} p-6 text-white shadow-xl transition hover:-translate-y-1 hover:shadow-2xl`}
                     >
-                      <Icon className="h-9 w-9 text-marigold transition group-hover:scale-110" />
+                      <Image src={s.image} alt={s.name} width={600} height={600} className="h-20 w-20 drop-shadow-lg transition group-hover:scale-110" />
                       <p className="font-hindi mt-4 text-3xl">{s.name}</p>
                       <p className="text-sm text-white/80">{s.en}</p>
                       <p className="font-hindi mt-3 text-sm text-marigold">{s.essence}</p>
@@ -129,7 +126,6 @@ export default function LogoPage() {
 
       {/* Symbol details */}
       {LOGO.symbols.map((s, i) => {
-        const Icon = ICONS[s.key];
         const dark = i % 2 === 1;
         return (
           <section key={s.key} id={s.key} className={`scroll-mt-28 py-20 ${dark ? "bg-maroon-texture" : "bg-texture"}`}>
@@ -137,9 +133,7 @@ export default function LogoPage() {
               <Reveal className={`text-center ${dark ? "md:order-2" : ""}`}>
                 <div className="relative mx-auto grid h-48 w-48 place-items-center">
                   <Mandala className={`animate-spin-slow absolute inset-0 ${dark ? "text-gold/50" : "text-gold"}`} />
-                  <span className={`relative grid h-28 w-28 rotate-45 place-items-center rounded-3xl bg-gradient-to-br ${TINTS[s.key]} shadow-2xl ring-4 ring-saffron/40`}>
-                    <Icon className="h-12 w-12 -rotate-45 text-marigold" />
-                  </span>
+                  <Image src={s.image} alt={s.name} width={600} height={600} className="relative h-36 w-36 drop-shadow-2xl" />
                 </div>
                 <p className={`font-hindi mt-4 text-4xl ${dark ? "text-marigold" : "text-ink"}`}>{s.name}</p>
                 <p className={`text-sm ${dark ? "text-white/70" : "text-ink/60"}`}>{s.en}</p>

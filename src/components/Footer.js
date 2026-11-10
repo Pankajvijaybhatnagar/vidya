@@ -31,8 +31,8 @@ export default function Footer() {
             <div className="flex items-center gap-3">
               <Image src="/logo.png" alt={`${SITE.name} logo`} width={56} height={56} className="rounded-full bg-white p-0.5" />
               <div className="leading-tight">
-                <p className="text-[10px] font-bold uppercase tracking-[0.25em] text-saffron">Vinay Bal Mandir</p>
-                <p className="font-display text-xl font-semibold">Gurukul Vidyapeeth</p>
+                <p className="font-display text-2xl font-bold uppercase tracking-tight">Vinay Bal Mandir</p>
+                <p className="text-[10px] font-bold uppercase tracking-[0.25em] text-saffron">Gurukul Vidyapeeth</p>
                 <p className="font-hindi text-sm text-white/60">{SITE.nameHi}</p>
               </div>
             </div>

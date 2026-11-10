@@ -1,6 +1,6 @@
 export const SITE = {
   name: "Vinay Bal Mandir Gurukul Vidyapeeth",
-  shortName: "Gurukul Vidyapeeth",
+  shortName: "Vinay Bal Mandir",
   nameHi: "विनय बाल मन्दिर गुरुकुल विद्यापीठ",
   trust: "Shri Lajja Ram Bashesar Dass",
   operator: "D.D.M. Nyas",
@@ -30,10 +30,11 @@ export const telHref = (n) => `tel:+91${n.replace(/\D/g, "")}`;
 // Office-bearers named on the Vidyapeeth's own banners (admissions banner; Shila Pujan Samaroh banner).
 export const MANAGEMENT = [
   { nameHi: "पीठाधीश्वर श्रीमहन्त राजेश स्वरूप जी महाराज", name: "Shrimahant Rajesh Swaroop Ji Maharaj", roleHi: "संस्थापक एवं अध्यक्ष", role: "Founder & Chairman", slug: "founder" },
-  { nameHi: "डॉ. कान्ता शर्मा", name: "Dr. Kanta Sharma", roleHi: "उपाध्यक्षा", role: "Vice-Chairperson", slug: "vice-chairperson" },
   { nameHi: "श्री विजय कुमार बंसल", name: "Shri Vijay Kumar Bansal", roleHi: "सह-संस्थापक · मुख्य ट्रस्टी", role: "Co-Founder · Chief Trustee", slug: "co-founder" },
-  { nameHi: "श्री शिवेन्दु भारद्वाज", name: "Shri Shivendu Bhardwaj", roleHi: "निदेशक", role: "Director" },
-  { nameHi: "श्री गुलाब सिंह", name: "Shri Gulab Singh", roleHi: "प्रबन्धक", role: "Manager" },
+  { nameHi: "डॉ. कान्ता शर्मा", name: "Dr. Kanta Sharma", roleHi: "उपाध्यक्षा", role: "Vice-Chairperson", slug: "vice-chairperson" },
+  { nameHi: "श्री गुलाब सिंह चीमा", name: "Shri Gulab Singh Cheema", roleHi: "प्रबन्धक", role: "Manager", slug: "manager" },
+  // Principal's name is not in any source file yet — fill in nameHi/name when confirmed.
+  { nameHi: "", name: "", roleHi: "प्रधानाचार्य", role: "Principal", slug: "principal" },
   { nameHi: "श्रीमती आरती भोला", name: "Smt. Aarti Bhola", roleHi: "बालवाटिका समन्वयक", role: "Balvatika Coordinator", slug: "balvatika-coordinator" },
 ];
 
@@ -56,6 +57,7 @@ export const NAV = [
       { href: "/messages/founder", label: "Founder", hint: "संस्थापक" },
       { href: "/messages/co-founder", label: "Co-Founder", hint: "सह-संस्थापक" },
       { href: "/messages/vice-chairperson", label: "Vice-Chairperson", hint: "उपाध्यक्षा" },
+      { href: "/messages/manager", label: "Manager", hint: "प्रबन्धक" },
       { href: "/messages/principal", label: "Principal", hint: "प्रधानाचार्य" },
       { href: "/messages/balvatika-coordinator", label: "Balvatika Coordinator", hint: "बालवाटिका समन्वयक" },
     ],

@@ -4,16 +4,13 @@ import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { AnimatePresence, motion } from "motion/react";
-import { ArrowUpRight, Flame, Flower2, Shell, Sun } from "lucide-react";
+import { ArrowUpRight } from "lucide-react";
 import { LOGO } from "@/lib/content";
-
-const ICONS = { surya: Sun, shankh: Shell, deepak: Flame, kamal: Flower2 };
 
 // Tabs over the four emblem symbols, showing each one's essence and opening paragraph.
 export default function SymbolExplorer() {
   const [active, setActive] = useState(0);
   const s = LOGO.symbols[active];
-  const Icon = ICONS[s.key];
 
   return (
     <div className="grid items-center gap-10 lg:grid-cols-[1fr_1.2fr]">
@@ -26,7 +23,6 @@ export default function SymbolExplorer() {
       <div>
         <div className="flex flex-wrap gap-2">
           {LOGO.symbols.map((sym, i) => {
-            const I = ICONS[sym.key];
             const on = i === active;
             return (
               <button
@@ -36,7 +32,7 @@ export default function SymbolExplorer() {
               >
                 {on && <motion.span layoutId="symbol-pill" className="absolute inset-0 rounded-full bg-white" transition={{ type: "spring", damping: 26, stiffness: 300 }} />}
                 {!on && <span className="absolute inset-0 rounded-full ring-1 ring-white/15" />}
-                <I className="relative h-4 w-4" />
+                <Image src={sym.image} alt="" width={600} height={600} className="relative h-6 w-6" />
                 <span className="font-hindi relative text-base font-medium">{sym.name}</span>
               </button>
             );
@@ -53,9 +49,7 @@ export default function SymbolExplorer() {
             className="glass mt-6 rounded-3xl p-7"
           >
             <div className="flex items-center gap-4">
-              <span className="grid h-14 w-14 place-items-center rounded-2xl bg-gradient-to-br from-saffron to-rust shadow-lg">
-                <Icon className="h-7 w-7 text-white" />
-              </span>
+              <Image src={s.image} alt={s.name} width={600} height={600} className="h-20 w-20 shrink-0 drop-shadow-xl" />
               <div>
                 <p className="font-hindi text-3xl font-semibold text-white">{s.name}</p>
                 <p className="text-sm text-white/50">{s.en}</p>

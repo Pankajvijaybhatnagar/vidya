@@ -244,10 +244,15 @@ export const PHOTOS = [
 ];
 
 export const PORTRAITS = {
-  // Founder: from the labelled photo on the Shila Pujan Samaroh banner (_DSC0516).
-  founder: {"src": "/people/rajesh-swaroop-ji-maharaj.webp", "w": 640, "h": 640, "blur": "data:image/webp;base64,UklGRmgAAABXRUJQVlA4IFwAAADwAQCdASoQABAAA4BaJaACw7DBzKUBqAAA/utwG4t2su70lbo4nreiA8D9hcukG7wUD0iTRFbwroWUlQjtEYQvV1dxKuStCfqbw7A4+RFy5w0mpuUF8sMzFAAAAA=="},
-  // Co-Founder: studio portrait; matches the labelled trustee photo on the same banner.
-  "co-founder": {"src": "/people/vijay-kumar-bansal.webp", "w": 811, "h": 900, "blur": "data:image/webp;base64,UklGRn4AAABXRUJQVlA4IHIAAADwAQCdASoOABAAA4BaJbACdACXwrI+1MAA9r8fN7DcsJAbG3Yr+cPlEINzHEpR2lPek+KqPdDKZkyaUOYvPUe/CBxnPOtAX+R7lO3FduvISSbK4Rr6sjIKeqArf9Z58LUtWhR6ck56JNCUUq3W+KAAAAA="} };
+  // Official portraits supplied with "Website Changes.pdf" (Nov 2026).
+  "founder": {"src": "/people/founder.webp", "w": 640, "h": 640, "blur": "data:image/webp;base64,UklGRogAAABXRUJQVlA4IHwAAABQAgCdASoQABAAA4BaJbACdAYtBBXkvwFXm4AA/PaeWf8cKGj6cQn0VrvDAzFK3lUhNTrseHXxllJAQWzigPeSrgmxyX+I5lyXzUUB+z/6XpamOBWEuywVcT9zboVJ1WQMaxzaqbXtBrJFaAb+VdbcrHP9wxM9pVNw0AAA"},
+  // Co-Founder: studio portrait; matches the labelled trustee photo on the Shila Pujan banner.
+  "co-founder": {"src": "/people/vijay-kumar-bansal.webp", "w": 811, "h": 900, "blur": "data:image/webp;base64,UklGRn4AAABXRUJQVlA4IHIAAADwAQCdASoOABAAA4BaJbACdACXwrI+1MAA9r8fN7DcsJAbG3Yr+cPlEINzHEpR2lPek+KqPdDKZkyaUOYvPUe/CBxnPOtAX+R7lO3FduvISSbK4Rr6sjIKeqArf9Z58LUtWhR6ck56JNCUUq3W+KAAAAA="},
+  "vice-chairperson": {"src": "/people/kanta-sharma.webp", "w": 640, "h": 640, "blur": "data:image/webp;base64,UklGRpIAAABXRUJQVlA4IIYAAABwAgCdASoQABAAA4BaJbACdAYt9qbaMlExHCgAAP7VDr8/4OB47j9R3G4JI7cawvEvXoZhj1N6TLQbGJr98TBbElJ3C5JSx+EZS6M+/hxFx8tpmjavR43Q5mXrTzMhyGqTuEYkayd5czYgOrgTpKDN87HTMQ+u9r6zfh1FdPAtEBiUSOAAAA=="},
+  "manager": {"src": "/people/gulab-singh.webp", "w": 640, "h": 640, "blur": "data:image/webp;base64,UklGRngAAABXRUJQVlA4IGwAAAAwAgCdASoQABAAA4BaJbACdAEVq2tvfT1irAD90xK6/yTv0HoJWDuQrN+64Eioy1MILlkdq5D3/oXbHgT9bzvjSdEAg7vp8EqM2ddSGlNGPUVD4XOBXmwv4ySe2Q836aAA9Whq62nuxc8AAAA="},
+  "principal": {"src": "/people/principal.webp", "w": 640, "h": 640, "blur": "data:image/webp;base64,UklGRpIAAABXRUJQVlA4IIYAAABwAgCdASoQABAAA4BaJbACdAYtzzkDbfLr+IAAANyRTtBQg2JS6r2geEGkw/V98JtNxO6MdfjRfKdnDFYY3SpESMqa/e25N8/lyhKlU6jKsA+GqB73I2N4c/wTqg8hGrk/OWaoCUeydhL9xmgcN7YL+OEggI1TKd5OUrrU08Y9On76nO5AAA=="},
+  "balvatika-coordinator": {"src": "/people/aarti-bhola.webp", "w": 640, "h": 640, "blur": "data:image/webp;base64,UklGRowAAABXRUJQVlA4IIAAAADwAQCdASoQABAAA4BaJbACdAYvqpvtaaAA/skXZukpDSX5j4oqA+SDZ/Zx97iaqwJ9yBJUAZhnj6gZFFbCs9+tPs4uvZrz8J4IJJ3Xt1CWT8zGrAgVxO9Ph8gC8+9odO7gLC1l/X4Ma/ulCA1o4vEfqyg+zc6jpPRBuY8eDQAAAA=="},
+};
 
 const BY_ID = Object.fromEntries(PHOTOS.map((p) => [p.id, p]));
 

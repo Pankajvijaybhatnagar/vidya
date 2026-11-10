@@ -115,34 +115,30 @@ export function FacilityGrid() {
 
 export function ManagementList() {
   return (
-    <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+    <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
       {MANAGEMENT.map((m, i) => {
         const msg = m.slug && MESSAGES.find((x) => x.slug === m.slug);
         const body = (
           <>
             {msg ? (
-              <Portrait message={msg} size="sm" />
+              <Portrait message={msg} size="md" />
             ) : (
-              <span className="font-hindi grid h-14 w-14 shrink-0 place-items-center rounded-full bg-gradient-to-br from-maroon to-saffron text-xl font-semibold text-white shadow-lg">
+              <span className="font-hindi grid h-24 w-24 shrink-0 place-items-center rounded-full bg-gradient-to-br from-maroon to-saffron text-4xl font-semibold text-white shadow-lg">
                 {m.nameHi.replace(/^(श्री|श्रीमती|डॉ\.)\s*/, "").charAt(0)}
               </span>
             )}
-            <span className="min-w-0 flex-1">
-              <span className="font-hindi block text-sm font-semibold text-saffron">{m.roleHi}</span>
-              <span className="font-hindi block font-semibold leading-snug text-ink">{m.nameHi}</span>
-              <span className="block text-xs text-ink/50">
-                {m.name} · {m.role}
-              </span>
-            </span>
+            <span className="font-hindi mt-4 rounded-full bg-saffron/10 px-3 py-1 text-sm font-semibold text-rust">{m.roleHi}</span>
+            {m.nameHi && <span className="font-hindi mt-2 block text-lg font-semibold leading-snug text-ink">{m.nameHi}</span>}
+            <span className="mt-1 block text-xs text-ink/50">{[m.name, m.role].filter(Boolean).join(" · ")}</span>
           </>
         );
-        const cls = "flex h-full items-center gap-4 rounded-2xl border border-ink/[0.07] bg-white p-5 shadow-sm transition";
+        const cls = "flex h-full flex-col items-center rounded-[1.75rem] border border-ink/[0.07] bg-white p-6 text-center shadow-sm transition";
         return (
-          <Reveal key={m.name} delay={(i % 3) * 0.07}>
+          <Reveal key={m.role} delay={(i % 3) * 0.07}>
             {msg ? (
-              <Link href={`/messages/${m.slug}`} className={`${cls} group hover:-translate-y-0.5 hover:border-saffron/40 hover:shadow-xl`}>
+              <Link href={`/messages/${m.slug}`} className={`${cls} group relative hover:-translate-y-1 hover:border-saffron/40 hover:shadow-xl`}>
                 {body}
-                <ArrowUpRight className="h-5 w-5 shrink-0 text-ink/25 transition group-hover:text-saffron" />
+                <ArrowUpRight className="absolute right-5 top-5 h-5 w-5 text-ink/25 transition group-hover:text-saffron" />
               </Link>
             ) : (
               <div className={cls}>{body}</div>

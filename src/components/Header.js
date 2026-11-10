@@ -198,10 +198,10 @@ export default function Header() {
               <Image src="/logo.png" alt={`${SITE.name} logo`} width={48} height={48} className="rounded-full" preload />
             </span>
             <span className="min-w-0 border-l border-ink/10 pl-3 leading-none">
-              <span className="block truncate text-[10px] font-bold uppercase tracking-[0.26em] text-rust">Vinay Bal Mandir</span>
-              <span className="mt-1 block truncate font-display text-lg font-semibold tracking-tight text-maroon lg:text-xl">
-                Gurukul Vidyapeeth
+              <span className="block truncate font-display text-xl font-bold uppercase tracking-tight text-maroon sm:text-2xl">
+                Vinay Bal Mandir
               </span>
+              <span className="mt-1 block truncate text-[10px] font-bold uppercase tracking-[0.26em] text-rust sm:text-[11px]">Gurukul Vidyapeeth · Jind</span>
             </span>
           </Link>
 
@@ -239,7 +239,10 @@ export default function Header() {
             <div className="mb-8 flex items-center justify-between">
               <span className="flex items-center gap-3">
                 <Image src="/logo.png" alt="" width={44} height={44} className="rounded-full bg-white p-0.5" />
-                <span className="font-display text-lg font-semibold text-white">Gurukul Vidyapeeth</span>
+                <span className="leading-tight">
+                  <span className="block font-display text-xl font-bold uppercase text-white">Vinay Bal Mandir</span>
+                  <span className="block text-[10px] font-bold uppercase tracking-[0.25em] text-gold-light">Gurukul Vidyapeeth</span>
+                </span>
               </span>
               <button onClick={close} aria-label="Close menu" className="grid h-11 w-11 place-items-center rounded-full bg-white/10 text-white ring-1 ring-white/15">
                 <X className="h-5 w-5" />

@@ -8,7 +8,7 @@ import { MESSAGES } from "@/lib/content";
 
 export const metadata = {
   title: "Messages",
-  description: "Messages from the Founder, Co-Founder, Vice-Chairperson, Principal and Balvatika Coordinator of Vinay Bal Mandir Gurukul Vidyapeeth.",
+  description: "Messages from the Founder, Co-Founder, Vice-Chairperson, Manager, Principal and Balvatika Coordinator of Vinay Bal Mandir Gurukul Vidyapeeth.",
 };
 
 function excerpt(m) {
